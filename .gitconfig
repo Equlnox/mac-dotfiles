@@ -1,0 +1,40 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Prateek Karnal
+	email = pkarnal@rippling.com
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
+[http]
+	sslVerify = false
+[pull]
+	rebase = true
+[submodule]
+	recurse = false
+[alias]
+	amend = commit -a --amend --no-edit
+	a      = add
+	ca     = commit -a
+	cam    = commit -am
+	cm     = commit -m
+	s      = status
+	d      = diff
+	dc     = diff --color-words
+	puom   = pull origin master
+	cob    = checkout -b
+	co     = checkout
+	fp     = fetch --prune --all
+	l      = log --oneline --decorate --graph
+	lall   = log --oneline --decorate --graph --all
+	ls     = log --oneline --decorate --graph --stat
+	lt     = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'
+	ros    = rebase origin/master
+	from   = !git fetch && git rebase origin/master
+	fromp  = !git fetch && git rebase origin/master && git push -f
+	rh     = reset --hard
+[push]
+	default = current
